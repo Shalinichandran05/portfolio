@@ -120,7 +120,7 @@ export const memories = [
   { title: 'First Repository', note: 'The moment version control stopped being a concept and started being a habit.', image: '/images/memories/first-repo.png' },
   { title: 'First Conference Acceptance', note: 'Reading the acceptance email twice to make sure it was real.', image: '/images/memories/first-confo.jpeg' },
   { title: 'First Deployment', note: 'Watching something I built become a real URL someone else could open.', image: '/images/memories/first-deployment.png' },
-  { title: 'First Live Project', note: 'The first project that felt less like practice and more like something real.', image: '/images/projects/project-skill-barter.png' },
+  { title: 'First Live Project', note: 'The first project that felt less like practice and more like something real.', image: '/images/memories/first-live.png' },
   { title: 'First Project Screenshot', note: 'Proof it existed, before I knew to keep better records.', image: '/images/memories/first-project.png' },
   { title: 'Server Down Bug Story', note: 'A production outage, a lot of coffee, and a fix that made sense at 2am.', image: '/images/memories/server-bug.png' },
   { title: 'Teaching School Kids About CLEO AI', note: 'Explaining AI to a room of kids taught me more than most lectures did.', image: '/images/memories/ai-students.jpeg' },
