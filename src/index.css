@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0, 123, 255, 0.18), transparent 26%),
+    radial-gradient(circle at 84% 16%, rgba(0, 191, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 48% 86%, rgba(0, 123, 255, 0.1), transparent 32%),
+    #050505;
+}
+
+::selection {
+  background: rgba(0, 191, 255, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #15171c;
+  border-radius: 8px;
+  border: 2px solid #050505;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #007bff;
+}
+
+:focus-visible {
+  outline: 2px solid #00bfff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(0, 191, 255, 0.35);
+}
+
+.card-surface {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0, 191, 255, 0.12), transparent 36%),
+    linear-gradient(150deg, rgba(18, 18, 20, 0.78), rgba(5, 5, 5, 0.54));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-float {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0, 191, 255, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.72),
+    0 0 60px rgba(0, 123, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.premium-line {
+  background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.48), transparent);
+}
+
+
+@keyframes current {
+  0% { stroke-dashoffset: 680; }
+  100% { stroke-dashoffset: 0; }
+}
+.roadmap-current {
+  stroke-dasharray: 90 590;
+  animation: current 10s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.78));
+}
+
+.perspective-container {
+  perspective: 1400px;
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
