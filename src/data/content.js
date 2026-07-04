@@ -143,12 +143,12 @@ export const projects = [
 
 export const achievements = [
   {
-    title: 'IEEE Publication — Faculty Appraisal Framework',
-    publicationUrl: '#',
+    title: 'IEEE Publication — Faculty Appraisal System',
+    publicationUrl: 'https://ieeexplore.ieee.org/abstract/document/11382859',
   },
   {
-    title: 'IEEE Publication — Fault and Leakage Detection',
-    publicationUrl: '#',
+    title: 'IEEE Publication — Smart irrigation pipeline monitoring system',
+    publicationUrl: 'https://ieeexplore.ieee.org/document/11564367',
   },
   { title: 'IEEE Conference Presentation - Faculty Appraisal System', certUrl: '/certs/fas-certif.jpg' },
   { title: 'IEEE Conference Presentation - Smart irrigation pipeline monitoring system', certUrl: '/certs/dp-certif.jpg' },

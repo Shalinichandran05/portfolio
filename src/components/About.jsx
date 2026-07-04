@@ -52,7 +52,7 @@ function InterestList({ label, items }) {
             key={item}
             initial={{ opacity: 0, y: 14, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.55 }}
+            viewport={{ once: true, amount: 0.55 }}
             transition={{ duration: 0.48, delay: index * 0.045, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 font-body text-sm text-ink-soft shadow-[0_0_22px_rgba(0,191,255,0.06)] transition-all duration-300 hover:border-glow/35 hover:text-ink hover:shadow-glow-sm"
           >
@@ -70,26 +70,29 @@ export default function About({ content }) {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.28 }}
+      viewport={{ once: true, amount: 0.28 }}
       className="relative mx-auto max-w-5xl"
     >
       <div className="pointer-events-none absolute inset-x-0 top-8 h-px bg-gradient-to-r from-transparent via-glow/35 to-transparent" />
 
       <div className="space-y-7 md:space-y-9">
-        <div className="space-y-4 md:space-y-5">
-          {content.intro.map((paragraph, index) => (
-            <motion.p
-              key={paragraph}
-              variants={rise}
-              className={`font-display leading-[1.18] tracking-[-0.01em] ${
-                index === 0
-                  ? 'text-xl text-ink md:text-2xl lg:text-3xl'
-                  : 'max-w-4xl text-lg text-ink-soft/78 md:text-xl'
-              }`}
-            >
-              <HighlightedText text={paragraph} />
-            </motion.p>
-          ))}
+        <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] md:p-8">
+          <div className="absolute left-0 top-6 h-16 w-px bg-glow/70 shadow-[0_0_18px_rgba(0,191,255,0.55)] md:top-8" />
+          <div className="space-y-4 md:space-y-5">
+            {content.intro.map((paragraph, index) => (
+              <motion.p
+                key={paragraph}
+                variants={rise}
+                className={`font-body leading-relaxed ${
+                  index === 0
+                    ? 'max-w-4xl text-base text-ink-soft md:text-lg'
+                    : 'max-w-4xl text-sm text-ink-soft/72 md:text-base'
+                }`}
+              >
+                <HighlightedText text={paragraph} />
+              </motion.p>
+            ))}
+          </div>
         </div>
 
         {content.focus?.length > 0 && <InterestList label={content.focusLabel} items={content.focus} />}
@@ -100,7 +103,7 @@ export default function About({ content }) {
               key={`${item.title}-${item.period}`}
               initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.58, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="group"
             >

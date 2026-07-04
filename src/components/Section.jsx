@@ -5,7 +5,7 @@ const sectionMotion = {
   'hero-about': { hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } },
   about: { hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } },
   skills: { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } },
-  experience: { hidden: { opacity: 0, scaleY: 0.92, y: 24 }, show: { opacity: 1, scaleY: 1, y: 0 } },
+  experience: { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } },
   projects: { hidden: { opacity: 0, y: 34 }, show: { opacity: 1, y: 0 } },
   achievements: { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } },
   certifications: { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } },
@@ -15,6 +15,7 @@ const sectionMotion = {
 
 export default function Section({ id, eyebrow, title, subtitle, children, className = '', innerClassName = '' }) {
   const motionVariant = sectionMotion[id] || { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }
+  const revealOnce = id === 'experience'
 
   return (
     <section id={id} className={`relative py-10 md:py-16 px-6 md:px-12 lg:px-20 ${className}`}>
@@ -23,7 +24,7 @@ export default function Section({ id, eyebrow, title, subtitle, children, classN
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: revealOnce, amount: 0.3 }}
             variants={motionVariant}
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             className="mb-10 md:mb-12"
