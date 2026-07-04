@@ -3,27 +3,27 @@ import ProfileImage from './ProfileImage.jsx'
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.18 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 34 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: 34, filter: 'blur(8px)' },
+  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.82, ease: [0.16, 1, 0.3, 1] } },
 }
 
 export default function Hero({ title, subtitle, description, buttons = [], image, imageAlt, onImageClick, shake, imageAdornment, onResumeClick }) {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(circle_at_50%_18%,rgba(0,123,255,0.16),transparent_38%)] pointer-events-none" />
+    <section id="hero" className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-28 pb-16 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(circle_at_50%_18%,rgba(0,123,255,0.2),transparent_38%)] pointer-events-none" />
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-[1.18fr_0.82fr] gap-14 items-center"
+        className="relative max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-[1.18fr_0.82fr] gap-12 items-center"
       >
         <div className="order-2 md:order-1">
           <motion.h1
             variants={item}
-            className="font-display font-bold text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-ink text-glow tracking-[-0.02em]"
+            className="font-invite italic font-semibold text-6xl sm:text-7xl lg:text-8xl leading-[0.92] text-ink text-glow tracking-normal drop-shadow-[0_0_24px_rgba(0,191,255,0.28)]"
           >
             {title}
           </motion.h1>
@@ -33,7 +33,7 @@ export default function Hero({ title, subtitle, description, buttons = [], image
           <motion.p variants={item} className="font-body text-base md:text-lg text-ink-soft mt-6 max-w-xl leading-relaxed">
             {description}
           </motion.p>
-          <motion.div variants={item} className="flex flex-wrap gap-4 mt-10">
+          <motion.div variants={item} className="flex flex-wrap gap-4 mt-9">
             {buttons.map((b, i) => {
               const isResume = b.label.toLowerCase() === 'resume'
               const className = i === 0

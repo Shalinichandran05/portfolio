@@ -17,16 +17,16 @@ export default function Section({ id, eyebrow, title, subtitle, children, classN
   const motionVariant = sectionMotion[id] || { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }
 
   return (
-    <section id={id} className={`relative py-24 md:py-32 px-6 md:px-12 lg:px-20 ${className}`}>
+    <section id={id} className={`relative py-16 md:py-24 px-6 md:px-12 lg:px-20 ${className}`}>
       <div className={`max-w-6xl mx-auto ${innerClassName}`}>
         {(eyebrow || title) && (
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={motionVariant}
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-14"
+            className="mb-10 md:mb-12"
           >
             {eyebrow && (
               <p className="font-body text-sm tracking-[0.28em] uppercase text-glow mb-4">

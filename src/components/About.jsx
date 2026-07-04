@@ -1,37 +1,124 @@
 import { motion } from 'framer-motion'
 
-export default function About({ paragraphs }) {
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.08 } },
+}
+
+const rise = {
+  hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.72, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
+const highlightWords = [
+  'Information Technology',
+  'software development',
+  'real-world applications',
+  'meaningful problems',
+  'functional products',
+  'new technologies',
+  'building things',
+  'intuitive',
+  'enjoyable',
+]
+
+function HighlightedText({ text }) {
+  const pattern = new RegExp(`(${highlightWords.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi')
+  return text.split(pattern).map((part, index) => {
+    const highlighted = highlightWords.some((word) => word.toLowerCase() === part.toLowerCase())
+    return highlighted ? (
+      <span key={`${part}-${index}`} className="text-ink text-glow">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  })
+}
+
+function InterestList({ label, items }) {
+  if (!items?.length) return null
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 items-start">
-      <motion.div
-        initial={{ opacity: 0, x: -34, clipPath: 'inset(0 24% 0 0)' }}
-        whileInView={{ opacity: 1, x: 0, clipPath: 'inset(0 0% 0 0)' }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full h-64 md:h-80 rounded-3xl card-surface flex items-center justify-center overflow-hidden"
-      >
-        <span className="font-display text-7xl font-semibold text-white/8 text-glow">S</span>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 34 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col gap-5"
-      >
-        {paragraphs.map((p, i) => (
-          <motion.p
-            key={i}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.55, delay: i * 0.08 }}
-            className="font-body text-base md:text-lg text-ink-soft leading-relaxed"
+    <motion.div variants={rise} className="pt-2">
+      <p className="mb-5 font-body text-xs uppercase tracking-[0.28em] text-glow/90">{label}</p>
+      <div className="flex flex-wrap gap-3">
+        {items.map((item, index) => (
+          <motion.span
+            key={item}
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.55 }}
+            transition={{ duration: 0.48, delay: index * 0.045, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 font-body text-sm text-ink-soft shadow-[0_0_22px_rgba(0,191,255,0.06)] transition-all duration-300 hover:border-glow/35 hover:text-ink hover:shadow-glow-sm"
           >
-            {p}
-          </motion.p>
+            {item}
+          </motion.span>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
+  )
+}
+
+export default function About({ content }) {
+  return (
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.28 }}
+      className="relative mx-auto max-w-5xl"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-8 h-px bg-gradient-to-r from-transparent via-glow/35 to-transparent" />
+
+      <div className="space-y-10 md:space-y-12">
+        <div className="space-y-6 md:space-y-7">
+          {content.intro.map((paragraph, index) => (
+            <motion.p
+              key={paragraph}
+              variants={rise}
+              className={`font-display leading-[1.08] tracking-[-0.01em] ${
+                index === 0
+                  ? 'text-3xl text-ink md:text-5xl lg:text-6xl'
+                  : 'max-w-4xl text-2xl text-ink-soft/78 md:text-4xl'
+              }`}
+            >
+              <HighlightedText text={paragraph} />
+            </motion.p>
+          ))}
+        </div>
+
+        {content.focus?.length > 0 && <InterestList label={content.focusLabel} items={content.focus} />}
+
+        <motion.div variants={rise} className="grid gap-5 border-y border-white/10 py-7 md:grid-cols-2 md:gap-8 md:py-9">
+          {content.education.map((item, index) => (
+            <motion.div
+              key={`${item.title}-${item.period}`}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.58, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
+            >
+              <p className="font-display text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-glow md:text-3xl">
+                {item.title}
+              </p>
+              <p className="mt-2 font-body text-sm text-ink-soft md:text-base">{item.place}</p>
+              <div className="mt-3 flex flex-wrap gap-3 font-body text-xs uppercase tracking-[0.18em] text-ink-faint">
+                <span>{item.period}</span>
+                {item.detail && <span>{item.detail}</span>}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <InterestList label={content.interestsLabel} items={content.interests} />
+      </div>
+    </motion.div>
   )
 }

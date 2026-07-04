@@ -1,22 +1,22 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 const logoPaths = {
-  React: '/images/skills/react.svg',
-  'Node.js': '/images/skills/nodejs.svg',
-  Node: '/images/skills/nodejs.svg',
-  Express: '/images/skills/express.svg',
-  Flask: '/images/skills/flask.svg',
-  PHP: '/images/skills/php.svg',
-  Java: '/images/skills/java.svg',
-  Python: '/images/skills/python.svg',
-  JavaScript: '/images/skills/javascript.svg',
-  MySQL: '/images/skills/mysql.svg',
-  PostgreSQL: '/images/skills/postgresql.svg',
-  Git: '/images/skills/git.svg',
-  GitHub: '/images/skills/github.svg',
-  Vercel: '/images/skills/vercel.svg',
-  Render: '/images/skills/render.svg',
+  React: '/images/skills/react.png',
+  'Node.js': '/images/skills/nodejs.jpg',
+  Node: '/images/skills/nodejs.jpg',
+  Express: '/images/skills/express.jpg',
+  Flask: '/images/skills/flask.png',
+  PHP: '/images/skills/php.webp',
+  Java: '/images/skills/java.png',
+  Python: '/images/skills/python.webp',
+  JavaScript: '/images/skills/javascript.png',
+  MySQL: '/images/skills/mysql.png',
+  PostgreSQL: '/images/skills/postgresql.webp',
+  Git: '/images/skills/git.webp',
+  GitHub: '/images/skills/github.png',
+  Vercel: '/images/skills/vercel.png',
+  Render: '/images/skills/render.jpg',
 }
 
 const splitRows = (skills) => [
@@ -39,7 +39,7 @@ export function SkillsSphere({ skills }) {
   const rows = splitRows(skills)
 
   return (
-    <div ref={sectionRef} className="relative -mx-6 md:-mx-12 lg:-mx-20 h-[330vh]">
+    <div ref={sectionRef} className="relative -mx-6 md:-mx-12 lg:-mx-20 h-[260vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden px-6 md:px-12 lg:px-20">
         <motion.div
           style={{ opacity: glowOpacity }}
@@ -48,26 +48,19 @@ export function SkillsSphere({ skills }) {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-bg to-transparent md:w-44" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-bg to-transparent md:w-44" />
 
-        <div className="relative z-10 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.45 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto mb-14 max-w-3xl text-center"
-          >
-            <p className="font-body text-xs tracking-[0.28em] uppercase text-glow mb-4">Technical Stack</p>
-            <h3 className="font-display text-3xl md:text-5xl font-semibold text-ink tracking-[-0.02em]">
-              Tools moving through the work.
-            </h3>
-          </motion.div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.28 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 w-full"
+        >
           <div className="flex flex-col gap-5 md:gap-7">
-            <SkillRail skills={[...rows[0], ...rows[0]]} x={rowOneX} align="left" />
-            <SkillRail skills={[...rows[1], ...rows[1]]} x={rowTwoX} align="right" muted />
-            <SkillRail skills={[...rows[2], ...rows[2]]} x={rowThreeX} align="left" />
+            <SkillRail skills={[...rows[0], ...rows[0]]} x={rowOneX} />
+            <SkillRail skills={[...rows[1], ...rows[1]]} x={rowTwoX} muted />
+            <SkillRail skills={[...rows[2], ...rows[2]]} x={rowThreeX} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
@@ -84,6 +77,7 @@ function SkillRail({ skills, x, muted = false }) {
 }
 
 function SkillCapsule({ skill, muted }) {
+  const [failed, setFailed] = useState(false)
   const initials = skill
     .replace('.js', '')
     .split(/\s+/)
@@ -102,18 +96,20 @@ function SkillCapsule({ skill, muted }) {
       } hover:border-glow/45 hover:bg-white/[0.065] hover:shadow-glow-sm`}
     >
       <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[#090a0d] md:h-12 md:w-12">
-        <img
-          src={logoPaths[skill] || `/images/skills/${skill.toLowerCase().replace(/\W+/g, '-')}.svg`}
-          alt=""
-          className="h-7 w-7 object-contain"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none'
-            e.currentTarget.nextSibling.style.display = 'flex'
-          }}
-        />
-        <span className="hidden h-full w-full items-center justify-center font-body text-xs font-semibold text-glow">
-          {initials}
-        </span>
+        {!failed && (
+          <img
+            src={logoPaths[skill] || `/images/skills/${skill.toLowerCase().replace(/\W+/g, '-')}.png`}
+            alt=""
+            className="h-7 w-7 object-contain"
+            loading="lazy"
+            onError={() => setFailed(true)}
+          />
+        )}
+        {failed && (
+          <span className="flex h-full w-full items-center justify-center font-body text-xs font-semibold text-glow">
+            {initials}
+          </span>
+        )}
       </span>
       <span className="font-body text-lg font-medium text-ink md:text-xl">{skill}</span>
     </motion.div>
@@ -122,20 +118,7 @@ function SkillCapsule({ skill, muted }) {
 
 export function SoftSkillsCloud({ skills }) {
   return (
-    <div className="relative mx-auto mt-20 max-w-5xl py-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.45 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-9 text-center"
-      >
-        <p className="font-body text-xs tracking-[0.28em] uppercase text-ink-faint mb-3">Soft Skills</p>
-        <h3 className="font-display text-2xl md:text-4xl font-semibold text-ink tracking-[-0.015em]">
-          The human side of how I work.
-        </h3>
-      </motion.div>
-
+    <div className="relative mx-auto mt-14 max-w-5xl py-2">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map((skill, i) => {
           const fromLeft = i % 2 === 0
@@ -144,7 +127,7 @@ export function SoftSkillsCloud({ skills }) {
               key={skill}
               initial={{ opacity: 0, x: fromLeft ? -36 : 36, y: 12 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={{ once: false, amount: 0.45 }}
               transition={{ duration: 0.58, delay: i * 0.055, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -5 }}
               className="rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-5 text-center font-body text-sm font-medium text-ink-soft backdrop-blur-md transition-all duration-300 hover:border-glow/35 hover:text-ink hover:shadow-glow-sm"

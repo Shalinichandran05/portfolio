@@ -10,7 +10,7 @@ const iconFor = (label) => {
   return Mail
 }
 
-export default function Contact({ socials }) {
+export default function Contact({ socials, intro = 'Prefer a direct line? Find me here.' }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
@@ -39,12 +39,12 @@ export default function Contact({ socials }) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: false, amount: 0.4 }}
         transition={{ duration: 0.6 }}
         className="flex flex-col gap-5"
       >
         <p className="font-body text-ink-soft leading-relaxed max-w-sm">
-          Prefer a direct line? Find me here.
+          {intro}
         </p>
         {socials.map((s) => {
           const Icon = iconFor(s.label)
@@ -69,7 +69,7 @@ export default function Contact({ socials }) {
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: false, amount: 0.4 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         className="flex flex-col gap-4"
       >
@@ -105,7 +105,7 @@ export default function Contact({ socials }) {
           className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-accent text-white font-body text-sm hover:bg-[#0091FF] hover:shadow-glow transition-all duration-300 disabled:opacity-60"
         >
           <Send size={16} />
-          {status === 'sending' ? 'Sending…' : 'Send Message'}
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
 
         {status === 'sent' && (
@@ -114,15 +114,17 @@ export default function Contact({ socials }) {
             animate={{ opacity: 1, y: 0 }}
             className="font-body text-sm text-glow text-center"
           >
-            ✈️ Your message is on its way.
+            Your message is on its way.
           </motion.p>
         )}
         {status === 'error' && (
           <p className="font-body text-sm text-red-400 text-center">
-            Something went wrong — please try again, or reach out directly.
+            Something went wrong - please try again, or reach out directly.
           </p>
         )}
       </motion.form>
     </div>
   )
 }
+
+

@@ -24,6 +24,64 @@ export const technicalSkills = [
   'MySQL', 'PostgreSQL', 'Flask', 'PHP', 'Git', 'GitHub', 'Vercel', 'Render',
 ]
 
+export const recruiterAbout = {
+  intro: [
+    'I am an Information Technology student with a strong interest in software development and building real-world applications that solve meaningful problems.',
+    'I enjoy transforming ideas into functional products and continuously exploring new technologies and development approaches.',
+  ],
+  education: [
+    {
+      title: 'Bachelor of Information Technology',
+      place: 'M.Kumarasamy College of Engineering',
+      period: '2023-2027',
+      detail: 'CGPA: 8.6',
+    },
+    {
+      title: 'Higher Secondary Education',
+      place: 'Karur Saraswathi Vidhyalaya Hr. Sec School',
+      period: '2021-2023',
+      detail: 'Score: 94%',
+    },
+  ],
+  interestsLabel: 'Main Interests',
+  interests: [
+    'Software Development',
+    'Web Development',
+    'Database Systems',
+    'Building Real-World Applications',
+    'Learning Emerging Technologies',
+  ],
+}
+
+export const visitorAbout = {
+  intro: [
+    "I'm someone who enjoys building things, figuring out how they work, and improving them little by little.",
+  ],
+  focusLabel: 'What excites me',
+  focus: [
+    'Building real-world projects',
+    "Learning technologies I've never used before",
+    'Creating experiences that feel intuitive and enjoyable',
+  ],
+  education: [
+    {
+      title: 'Bachelor of Information Technology',
+      place: 'M.Kumarasamy College of Engineering',
+      period: '2023-2027',
+    },
+    {
+      title: 'Higher Secondary Education',
+      place: 'Karur Saraswathi Vidhyalaya Hr. Sec School',
+      period: '2021-2023',
+    },
+  ],
+  interestsLabel: 'Outside of code',
+  interests: [
+    'Learning Guitar',
+    'Drawing Portraits and Caricatures',
+    'Exploring new ideas and technologies',
+  ],
+}
 export const softSkills = [
   'Curiosity', 'Creativity', 'Communication', 'Problem Solving',
   'Adaptability', 'Reliability', 'Collaboration', 'Consistency',
@@ -83,17 +141,17 @@ export const projects = [
 ]
 
 export const achievements = [
-  { title: 'IEEE Conference Presentation - Faculty Appraisal System', certUrl: '/certs/fas-certif.pdf' },
-  { title: 'IEEE Conference Presentation - Smart irrigation pipeline monitoring system', certUrl: '/certs/dp-certif.pdf' },
+  { title: 'IEEE Conference Presentation - Faculty Appraisal System', certUrl: '/certs/fas-certif.jpg' },
+  { title: 'IEEE Conference Presentation - Smart irrigation pipeline monitoring system', certUrl: '/certs/dp-certif.jpg' },
   { title: 'HackFest 2K25', certUrl: '/certs/Hackathon.jpeg' },
-  { title: 'Project Expo 2026', certUrl: '/certs/project-expo.pdf' },
+  { title: 'Project Expo 2026', certUrl: '/certs/project-expo.jpg' },
 ]
 
 export const certifications = [
-  { title: 'Oracle Certified Foundations Associate', certUrl: '/certs/Oracle1.pdf' },
-  { title: 'NPTEL - Human Computer Interaction', certUrl: '/certs/hci.pdf' },
-  { title: 'Deloitte Technology Job Simulation', certUrl: '/certs/Deloitte.pdf' },
-  { title: 'IBM - Getting Started with AI', certUrl: '/certs/IBM.pdf' },
+  { title: 'Oracle Certified Foundations Associate', certUrl: '/certs/Oracle1.jpg' },
+  { title: 'NPTEL - Human Computer Interaction', certUrl: '/certs/hci.jpg' },
+  { title: 'Deloitte Technology Job Simulation', certUrl: '/certs/Deloitte.jpg' },
+  { title: 'IBM - Getting Started with AI', certUrl: '/certs/IBM.jpg' },
 ]
 
 export const teammateNotes = [

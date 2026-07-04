@@ -19,6 +19,7 @@ import {
   profile,
   storyNodes,
   technicalSkills,
+  visitorAbout,
   softSkills,
   projects,
   experience,
@@ -76,13 +77,7 @@ export default function VisitorView() {
       </Section>
 
       <Section id="hero-about" eyebrow="Meet Shalu" title="A little about me">
-        <About
-          paragraphs={[
-            "I started out curious about how things work - first with a thermocol robot model, later with actual code. That curiosity hasn't really gone away.",
-            "I've since built projects, presented research at IEEE conferences, taught workshops, and worked with a startup team where I learned that shipping something is only half the job - the other half is caring about the people who use it.",
-            "When I'm not building, I'm usually learning something slightly unrelated, just to keep the curiosity muscle working.",
-          ]}
-        />
+        <About content={visitorAbout} />
       </Section>
 
       <Section id="skills" eyebrow="Skills I'm Building" title="What I'm working with, and on">
@@ -95,7 +90,7 @@ export default function VisitorView() {
       </Section>
 
       <Section id="experience" eyebrow="Real World Experience" title="Where I've put this into practice">
-        <Experience items={experience} />
+        <Experience items={experience} variant="visitor" />
       </Section>
 
       <Section id="teammate" eyebrow="How I Am As A Teammate" title="What it's like working with me">
@@ -104,14 +99,14 @@ export default function VisitorView() {
 
       <Section id="achievements" eyebrow="Achievements Unlocked" title="Moments I'm proud of">
         <Achievements items={achievements} />
-        <div className="mt-12 border-t border-white/10 pt-8">
+        <div className="mt-10 border-t border-white/10 pt-7">
           <p className="mb-5 font-body text-xs tracking-[0.24em] uppercase text-ink-faint">Certifications</p>
           <Achievements items={certifications} />
         </div>
       </Section>
 
       <Section id="connect" eyebrow="Let's Connect" title="Say hello">
-        <Contact socials={socials} />
+        <Contact socials={socials} intro="Whether you want to talk about projects, startups, ideas, technology, or simply say hello, I'd love to hear from you." />
       </Section>
 
       <DocumentModal open={resumeOpen} title="Resume" src={profile.resumeUrl} onClose={() => setResumeOpen(false)} downloadLabel="Download resume" />

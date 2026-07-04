@@ -14,6 +14,7 @@ import {
   profile,
   hireRoadmap,
   technicalSkills,
+  recruiterAbout,
   softSkills,
   experience,
   projects,
@@ -47,24 +48,16 @@ export default function RecruiterView() {
       </Section>
 
       <Section id="about" eyebrow="About Me" title="A bit more about how I think">
-        <About
-          paragraphs={[
-            "I'm a developer who likes untangling problems as much as building new things. I care about clean, maintainable code - but I care more about whether the people using what I build actually have a good experience.",
-            'Outside of pure development, I have presented research at IEEE conferences, taught workshops, and spent time on the community and communication side of a startup - which taught me that good engineering is rarely just about the code.',
-            "I'm looking for a team where I can keep learning quickly and contribute meaningfully from early on.",
-          ]}
-        />
+        <About content={recruiterAbout} />
       </Section>
 
       <Section id="skills" eyebrow="Skills" title="What I work with">
-        <p className="font-body text-xs tracking-[0.25em] uppercase text-ink-faint text-center mb-2">Technical</p>
         <SkillsSphere skills={technicalSkills} />
-        <p className="font-body text-xs tracking-[0.25em] uppercase text-ink-faint text-center mt-10 mb-2">Soft Skills</p>
         <SoftSkillsCloud skills={softSkills} />
       </Section>
 
       <Section id="experience" eyebrow="Professional Experience" title="Where I've worked">
-        <Experience items={experience} />
+        <Experience items={experience} variant="recruiter" />
       </Section>
 
       <Section id="projects" eyebrow="Projects" title="Things I've built" innerClassName="">
@@ -84,7 +77,7 @@ export default function RecruiterView() {
       </Section>
 
       <Section id="contact" eyebrow="Contact" title="Let's talk">
-        <Contact socials={socials} />
+        <Contact socials={socials} intro="Whether it's an opportunity, a collaboration, or simply a conversation about technology, I'd be happy to connect." />
       </Section>
 
       <DocumentModal open={resumeOpen} title="Resume" src={profile.resumeUrl} onClose={() => setResumeOpen(false)} downloadLabel="Download resume" />
