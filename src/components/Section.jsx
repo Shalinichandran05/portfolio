@@ -9,15 +9,15 @@ const sectionMotion = {
   projects: { hidden: { opacity: 0, y: 34 }, show: { opacity: 1, y: 0 } },
   achievements: { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } },
   certifications: { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } },
-  contact: { hidden: { opacity: 0, filter: 'blur(8px)' }, show: { opacity: 1, filter: 'blur(0px)' } },
-  connect: { hidden: { opacity: 0, filter: 'blur(8px)' }, show: { opacity: 1, filter: 'blur(0px)' } },
+  contact: { hidden: { opacity: 0 }, show: { opacity: 1 } },
+  connect: { hidden: { opacity: 0 }, show: { opacity: 1 } },
 }
 
 export default function Section({ id, eyebrow, title, subtitle, children, className = '', innerClassName = '' }) {
   const motionVariant = sectionMotion[id] || { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }
 
   return (
-    <section id={id} className={`relative py-16 md:py-24 px-6 md:px-12 lg:px-20 ${className}`}>
+    <section id={id} className={`relative py-10 md:py-16 px-6 md:px-12 lg:px-20 ${className}`}>
       <div className={`max-w-6xl mx-auto ${innerClassName}`}>
         {(eyebrow || title) && (
           <motion.div

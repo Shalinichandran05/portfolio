@@ -30,6 +30,7 @@ export default function RecruiterView() {
     <div>
       <Hero
         title="Shalini"
+        name="Shalini"
         subtitle="Software Developer | Information Technology Undergraduate | Developer at CRACOE"
         description="I write code that ships, ask questions before I assume, and care as much about how a feature feels as whether it works. Currently looking for a team to grow with."
         image={profile.professionalImage}
@@ -52,8 +53,8 @@ export default function RecruiterView() {
       </Section>
 
       <Section id="skills" eyebrow="Skills" title="What I work with">
-        <SkillsSphere skills={technicalSkills} />
-        <SoftSkillsCloud skills={softSkills} />
+        <SkillsSphere skills={technicalSkills} label="Technical Stack" />
+        <SoftSkillsCloud skills={softSkills} label="Soft Skills" />
       </Section>
 
       <Section id="experience" eyebrow="Professional Experience" title="Where I've worked">

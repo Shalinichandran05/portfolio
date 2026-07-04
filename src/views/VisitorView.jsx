@@ -56,6 +56,7 @@ export default function VisitorView() {
         <PaperAirplane onArrive={triggerArrivalPulse} />
         <Hero
           title="Hey, I'm Shalu"
+          name="Shalu"
           subtitle="A developer who's still endlessly curious"
           description="This is the more human side of my portfolio - how I got here, what I've built, and how I show up on a team. Feel free to explore in any order."
           image={profile.casualImage}
@@ -81,8 +82,8 @@ export default function VisitorView() {
       </Section>
 
       <Section id="skills" eyebrow="Skills I'm Building" title="What I'm working with, and on">
-        <SkillsSphere skills={technicalSkills} />
-        <SoftSkillsCloud skills={softSkills} />
+        <SkillsSphere skills={technicalSkills} label="Technical Stack" />
+        <SoftSkillsCloud skills={softSkills} label="Skills Beyond Code" />
       </Section>
 
       <Section id="projects" eyebrow="Things I've Built" title="A few things worth showing">

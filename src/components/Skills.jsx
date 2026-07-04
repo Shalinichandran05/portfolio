@@ -25,7 +25,7 @@ const splitRows = (skills) => [
   skills.filter((_, i) => i % 3 === 2),
 ]
 
-export function SkillsSphere({ skills }) {
+export function SkillsSphere({ skills, label }) {
   const sectionRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -39,7 +39,7 @@ export function SkillsSphere({ skills }) {
   const rows = splitRows(skills)
 
   return (
-    <div ref={sectionRef} className="relative -mx-6 md:-mx-12 lg:-mx-20 h-[260vh]">
+    <div ref={sectionRef} className="relative -mx-6 md:-mx-12 lg:-mx-20 h-[190vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden px-6 md:px-12 lg:px-20">
         <motion.div
           style={{ opacity: glowOpacity }}
@@ -55,7 +55,12 @@ export function SkillsSphere({ skills }) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 w-full"
         >
-          <div className="flex flex-col gap-5 md:gap-7">
+          <div className="flex flex-col gap-4 md:gap-5">
+            {label && (
+              <p className="text-center font-body text-xs md:text-sm tracking-[0.28em] uppercase text-glow/90 mb-4 md:mb-6">
+                {label}
+              </p>
+            )}
             <SkillRail skills={[...rows[0], ...rows[0]]} x={rowOneX} />
             <SkillRail skills={[...rows[1], ...rows[1]]} x={rowTwoX} muted />
             <SkillRail skills={[...rows[2], ...rows[2]]} x={rowThreeX} />
@@ -116,9 +121,14 @@ function SkillCapsule({ skill, muted }) {
   )
 }
 
-export function SoftSkillsCloud({ skills }) {
+export function SoftSkillsCloud({ skills, label }) {
   return (
     <div className="relative mx-auto mt-14 max-w-5xl py-2">
+      {label && (
+        <p className="text-center font-body text-xs md:text-sm tracking-[0.28em] uppercase text-glow/90 mb-6 md:mb-8">
+          {label}
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map((skill, i) => {
           const fromLeft = i % 2 === 0

@@ -6,11 +6,10 @@ const container = {
 }
 
 const rise = {
-  hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 28 },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: { duration: 0.72, ease: [0.16, 1, 0.3, 1] },
   },
 }
@@ -76,16 +75,16 @@ export default function About({ content }) {
     >
       <div className="pointer-events-none absolute inset-x-0 top-8 h-px bg-gradient-to-r from-transparent via-glow/35 to-transparent" />
 
-      <div className="space-y-10 md:space-y-12">
-        <div className="space-y-6 md:space-y-7">
+      <div className="space-y-7 md:space-y-9">
+        <div className="space-y-4 md:space-y-5">
           {content.intro.map((paragraph, index) => (
             <motion.p
               key={paragraph}
               variants={rise}
-              className={`font-display leading-[1.08] tracking-[-0.01em] ${
+              className={`font-display leading-[1.18] tracking-[-0.01em] ${
                 index === 0
-                  ? 'text-3xl text-ink md:text-5xl lg:text-6xl'
-                  : 'max-w-4xl text-2xl text-ink-soft/78 md:text-4xl'
+                  ? 'text-xl text-ink md:text-2xl lg:text-3xl'
+                  : 'max-w-4xl text-lg text-ink-soft/78 md:text-xl'
               }`}
             >
               <HighlightedText text={paragraph} />
@@ -95,7 +94,7 @@ export default function About({ content }) {
 
         {content.focus?.length > 0 && <InterestList label={content.focusLabel} items={content.focus} />}
 
-        <motion.div variants={rise} className="grid gap-5 border-y border-white/10 py-7 md:grid-cols-2 md:gap-8 md:py-9">
+        <motion.div variants={rise} className="grid gap-4 border-y border-white/10 py-5 md:grid-cols-2 md:gap-6 md:py-7">
           {content.education.map((item, index) => (
             <motion.div
               key={`${item.title}-${item.period}`}
@@ -105,11 +104,11 @@ export default function About({ content }) {
               transition={{ duration: 0.58, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="group"
             >
-              <p className="font-display text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-glow md:text-3xl">
+              <p className="font-display text-base font-semibold text-ink transition-colors duration-300 group-hover:text-glow md:text-lg">
                 {item.title}
               </p>
-              <p className="mt-2 font-body text-sm text-ink-soft md:text-base">{item.place}</p>
-              <div className="mt-3 flex flex-wrap gap-3 font-body text-xs uppercase tracking-[0.18em] text-ink-faint">
+              <p className="mt-1 font-body text-xs text-ink-soft md:text-sm">{item.place}</p>
+              <div className="mt-2 flex flex-wrap gap-3 font-body text-xs uppercase tracking-[0.18em] text-ink-faint">
                 <span>{item.period}</span>
                 {item.detail && <span>{item.detail}</span>}
               </div>

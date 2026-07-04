@@ -49,14 +49,16 @@ export default function ProjectsStack({ projects }) {
                   >
                     <Github size={16} /> GitHub
                   </a>
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-white text-sm hover:bg-[#0091FF] hover:shadow-glow transition-all duration-300"
-                  >
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
+                  {p.demo && p.demo !== '#' && (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-white text-sm hover:bg-[#0091FF] hover:shadow-glow transition-all duration-300"
+                    >
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

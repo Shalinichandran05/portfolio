@@ -6,14 +6,49 @@ const container = {
   show: { transition: { staggerChildren: 0.14, delayChildren: 0.18 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 34, filter: 'blur(8px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.82, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: 34 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.82, ease: [0.16, 1, 0.3, 1] } },
 }
 
-export default function Hero({ title, subtitle, description, buttons = [], image, imageAlt, onImageClick, shake, imageAdornment, onResumeClick }) {
+// Renders the title with the `name` portion in the premium serif font
+// and the rest in the standard display font (when on a different line or inline)
+function HeroTitle({ title, name }) {
+  if (!name || !title.includes(name)) {
+    return (
+      <span className="font-invite italic font-semibold text-6xl sm:text-7xl lg:text-8xl leading-[0.92] text-ink tracking-normal">
+        {title}
+      </span>
+    )
+  }
+
+  const parts = title.split(name)
+
+  return (
+    <>
+      {parts[0] && (
+        <span className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-ink-soft tracking-[-0.01em] block mb-1">
+          {parts[0].trim()}
+        </span>
+      )}
+      <span
+        className="font-invite italic font-semibold text-6xl sm:text-7xl lg:text-8xl leading-[0.92] text-ink tracking-normal"
+        style={{ textShadow: '0 0 40px rgba(0,191,255,0.32), 0 0 80px rgba(0,123,255,0.18)' }}
+      >
+        {name}
+      </span>
+      {parts[1] && (
+        <span className="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-ink-soft tracking-[-0.01em] block mt-1">
+          {parts[1].trim()}
+        </span>
+      )}
+    </>
+  )
+}
+
+export default function Hero({ title, name, subtitle, description, buttons = [], image, imageAlt, onImageClick, shake, imageAdornment, onResumeClick }) {
   return (
     <section id="hero" className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-28 pb-16 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(circle_at_50%_18%,rgba(0,123,255,0.2),transparent_38%)] pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(circle_at_50%_18%,rgba(0,123,255,0.25),transparent_38%)] pointer-events-none" />
       <motion.div
         variants={container}
         initial="hidden"
@@ -23,9 +58,9 @@ export default function Hero({ title, subtitle, description, buttons = [], image
         <div className="order-2 md:order-1">
           <motion.h1
             variants={item}
-            className="font-invite italic font-semibold text-6xl sm:text-7xl lg:text-8xl leading-[0.92] text-ink text-glow tracking-normal drop-shadow-[0_0_24px_rgba(0,191,255,0.28)]"
+            className="leading-[0.92] drop-shadow-[0_0_24px_rgba(0,191,255,0.28)]"
           >
-            {title}
+            <HeroTitle title={title} name={name} />
           </motion.h1>
           <motion.p variants={item} className="font-display font-medium text-xl md:text-2xl text-glow mt-6">
             {subtitle}

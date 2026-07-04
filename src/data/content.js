@@ -33,13 +33,13 @@ export const recruiterAbout = {
     {
       title: 'Bachelor of Information Technology',
       place: 'M.Kumarasamy College of Engineering',
-      period: '2023-2027',
+      period: '2023–2027',
       detail: 'CGPA: 8.6',
     },
     {
       title: 'Higher Secondary Education',
       place: 'Karur Saraswathi Vidhyalaya Hr. Sec School',
-      period: '2021-2023',
+      period: '2021–2023',
       detail: 'Score: 94%',
     },
   ],
@@ -67,12 +67,12 @@ export const visitorAbout = {
     {
       title: 'Bachelor of Information Technology',
       place: 'M.Kumarasamy College of Engineering',
-      period: '2023-2027',
+      period: '2023–2027',
     },
     {
       title: 'Higher Secondary Education',
       place: 'Karur Saraswathi Vidhyalaya Hr. Sec School',
-      period: '2021-2023',
+      period: '2021–2023',
     },
   ],
   interestsLabel: 'Outside of code',
@@ -82,6 +82,7 @@ export const visitorAbout = {
     'Exploring new ideas and technologies',
   ],
 }
+
 export const softSkills = [
   'Curiosity', 'Creativity', 'Communication', 'Problem Solving',
   'Adaptability', 'Reliability', 'Collaboration', 'Consistency',
@@ -141,6 +142,14 @@ export const projects = [
 ]
 
 export const achievements = [
+  {
+    title: 'IEEE Publication — Faculty Appraisal Framework',
+    publicationUrl: '#',
+  },
+  {
+    title: 'IEEE Publication — Fault and Leakage Detection',
+    publicationUrl: '#',
+  },
   { title: 'IEEE Conference Presentation - Faculty Appraisal System', certUrl: '/certs/fas-certif.jpg' },
   { title: 'IEEE Conference Presentation - Smart irrigation pipeline monitoring system', certUrl: '/certs/dp-certif.jpg' },
   { title: 'HackFest 2K25', certUrl: '/certs/Hackathon.jpeg' },
@@ -178,13 +187,13 @@ export const memories = [
   { title: 'First Repository', note: 'The moment version control stopped being a concept and started being a habit.', image: '/images/memories/first-repo.png' },
   { title: 'First Conference Acceptance', note: 'Reading the acceptance email twice to make sure it was real.', image: '/images/memories/first-confo.jpeg' },
   { title: 'First Deployment', note: 'Watching something I built become a real URL someone else could open.', image: '/images/memories/first-deployment.png' },
-  { title: 'First Live Project', note: 'The first live project built for BESTFRIEND\'s birthday.', image: '/images/memories/first-live.png' },
+  { title: 'First Live Project', note: "The first live project built for BESTFRIEND's birthday.", image: '/images/memories/first-live.png' },
   { title: 'First Project Screenshot', note: 'Proof it existed, before I knew to keep better records.', image: '/images/memories/first-project.png' },
   { title: 'Server Down Bug Story', note: 'Spent 30 minutes debugging my deployment only to discover my database was simply taking a nap.', image: '/images/memories/server-bug.png' },
   { title: 'Teaching School Kids About CLEO AI', note: 'Explaining AI to a room of kids taught me more than most lectures did.', image: '/images/memories/ai-students.jpeg' },
   { title: 'Internship Training Session', note: 'A Google Meet training session from the internship days.', image: '/images/memories/training-intern.jpeg' },
   { title: 'CRACOE Team After Internship', note: 'Successful completion of 15 days Internship.', image: '/images/memories/intern-completed.jpeg' },
-  { title: 'GATE Experience', note: 'GATE 2026 didn’t go fully in my favour, but I was closer than I expected', image: '/images/memories/gate-exp.jpeg' },
+  { title: 'GATE Experience', note: "GATE 2026 didn't go fully in my favour, but I was closer than I expected", image: '/images/memories/gate-exp.jpeg' },
   { title: 'Thermocol Robot Model', note: 'Before code, there was cardboard, thermocol, and a lot of glue.', image: '/images/memories/ai-robot.jpeg' },
   { title: 'Hackathon Team', note: 'Sleep-deprived and proud of something that barely worked, but worked.', image: '/images/memories/first-hack.jpeg' },
   { title: 'First Musical Instrument', note: 'A reminder that curiosity started long before the first line of code.', image: '/images/memories/first-instrument.jpeg' },
