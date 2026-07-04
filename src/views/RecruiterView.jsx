@@ -29,7 +29,7 @@ export default function RecruiterView() {
     <div>
       <Hero
         title="Shalini"
-        subtitle="Developer - building things that hold up under real use"
+        subtitle="Software Developer | Information Technology Undergraduate | Developer at CRACOE"
         description="I write code that ships, ask questions before I assume, and care as much about how a feature feels as whether it works. Currently looking for a team to grow with."
         image={profile.professionalImage}
         imageAlt="Shalini, professional photo"
@@ -80,7 +80,7 @@ export default function RecruiterView() {
       </Section>
 
       <Section id="team-note" eyebrow="A Note To The Team I'll Work With">
-        <TeamNote text="I'm not looking for a place to just get by - I'm looking for a team I can grow with, learn from, and contribute to honestly. However this goes, thank you for taking the time to look through my work." />
+        <TeamNote text="As a final-year Information Technology student, I bring curiosity, consistency, and a willingness to learn quickly. I enjoy asking questions, collaborating with others, and improving through feedback. My goal is not just to write code, but to become someone a team can rely on when solving problems and building meaningful products." />
       </Section>
 
       <Section id="contact" eyebrow="Contact" title="Let's talk">

@@ -4,7 +4,7 @@ export const profile = {
   name: 'Shalini',
   professionalImage: '/images/shalini-professional.jpeg',
   casualImage: '/images/shalini-casual.jpeg',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/resumes.jpg',
 }
 
 export const hireRoadmap = [
@@ -33,14 +33,14 @@ export const experience = [
   {
     company: 'CRACOE Startup',
     role: 'Developer',
-    period: 'Internship',
+    period: 'Aug 2025 - Present',
     contributions: [
       'Developed and maintained software solutions.',
-      'Supported web development internship.',
-      'Conducted computer networks sessions.',
-      'Created posters and technical content.',
-      'Supported social media and branding.',
-      'Collaborated with startup team.',
+      'Built the Skill Barter platform, a full-stack skill exchange application.',
+      'Contributed as one of the trainers in a 15-days Web Development Internship Program.',
+      'Conducted sessions on Computer Networks.',
+      'Created technical posters, educational content, and social media materials for company branding.',
+      'Collaborated with team members in development, training, and marketing initiatives.',
     ],
     learning: ['Teamwork', 'Collaboration', 'Ownership', 'Communication'],
   },
@@ -48,43 +48,43 @@ export const experience = [
 
 export const projects = [
   {
-    name: 'Skill Barter Platform',
-    tech: ['React', 'Node.js', 'Express', 'MySQL'],
+    name: 'Skill Barter',
+    tech: ['React', 'Node.js', 'Express', 'MySQL', 'JWT'],
     description:
-      'A platform built during the CRACOE internship that lets people trade skills with each other instead of money - matching, scheduling, and messaging in one place.',
+      'Full-stack skill exchange platform using a time-credit system with trust scoring and dispute management.',
     image: '/images/projects/project-skill-barter.png',
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/Shalinichandran05/skill-barter',
+    demo: 'https://skillbarter-app.vercel.app/',
   },
   {
-    name: 'Project Two',
-    tech: ['Python', 'Flask', 'PostgreSQL'],
-    description: 'Replace with a short, specific description of what this project does and who it is for.',
+    name: 'EcoSentinel',
+    tech: ['Python Flask', 'PostgreSQL', 'Leaflet', 'chart.js'],
+    description: 'Human-Wildlife Conflict Management System with mapping and analytics dashboards.',
     image: '/images/projects/project-two.png',
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/Shalinichandran05/ecosentinel',
+    demo: 'https://ecosentinel-xbus.onrender.com/',
   },
   {
-    name: 'Project Three',
-    tech: ['Java', 'React'],
-    description: 'Replace with a short, specific description of what this project does and who it is for.',
+    name: 'Faculty Appraisal System',
+    tech: ['PHP', 'MySQL', 'Python Analytics'],
+    description: 'Role-based faculty appraisal platform with analytics-driven evaluation workflows.',
     image: '/images/projects/project-three.jpg',
-    github: '#',
+    github: 'https://github.com/Shalinichandran05/Faculty-Appraisal-System',
     demo: '#',
   },
   {
-    name: 'Project Four',
-    tech: ['PHP', 'MySQL'],
-    description: 'Replace with a short, specific description of what this project does and who it is for.',
+    name: 'Supermarket Billing System',
+    tech: ['Java', 'MySQL', 'Java Swing', 'Gmail SMTP'],
+    description: 'System featuring billing, inventory management, sales reporting, and automated low-stock email notifications using Gmail SMTP.',
     image: '/images/projects/project-four.jpg',
-    github: '#',
+    github: 'https://github.com/Shalinichandran05/Supermarket-Billing-System',
     demo: '#',
   },
 ]
 
 export const achievements = [
-  { title: 'IEEE Conference Presentation - Faculty Appraisal Framework', certUrl: '/certs/fas-certif.pdf' },
-  { title: 'IEEE Conference Presentation - Fault and Leakage Detection', certUrl: '/certs/dp-certif.pdf' },
+  { title: 'IEEE Conference Presentation - Faculty Appraisal System', certUrl: '/certs/fas-certif.pdf' },
+  { title: 'IEEE Conference Presentation - Smart irrigation pipeline monitoring system', certUrl: '/certs/dp-certif.pdf' },
   { title: 'HackFest 2K25', certUrl: '/certs/Hackathon.jpeg' },
   { title: 'Project Expo 2026', certUrl: '/certs/project-expo.pdf' },
 ]
@@ -120,15 +120,15 @@ export const memories = [
   { title: 'First Repository', note: 'The moment version control stopped being a concept and started being a habit.', image: '/images/memories/first-repo.png' },
   { title: 'First Conference Acceptance', note: 'Reading the acceptance email twice to make sure it was real.', image: '/images/memories/first-confo.jpeg' },
   { title: 'First Deployment', note: 'Watching something I built become a real URL someone else could open.', image: '/images/memories/first-deployment.png' },
-  { title: 'First Live Project', note: 'The first project that felt less like practice and more like something real.', image: '/images/memories/first-live.png' },
+  { title: 'First Live Project', note: 'The first live project built for BESTFRIEND\'s birthday.', image: '/images/memories/first-live.png' },
   { title: 'First Project Screenshot', note: 'Proof it existed, before I knew to keep better records.', image: '/images/memories/first-project.png' },
-  { title: 'Server Down Bug Story', note: 'A production outage, a lot of coffee, and a fix that made sense at 2am.', image: '/images/memories/server-bug.png' },
+  { title: 'Server Down Bug Story', note: 'Spent 30 minutes debugging my deployment only to discover my database was simply taking a nap.', image: '/images/memories/server-bug.png' },
   { title: 'Teaching School Kids About CLEO AI', note: 'Explaining AI to a room of kids taught me more than most lectures did.', image: '/images/memories/ai-students.jpeg' },
-  { title: 'Internship Teaching Session', note: 'A Google Meet teaching session from the internship days.', image: '/images/memories/training-intern.jpeg' },
-  { title: 'CRACOE Team After Internship', note: 'The last day photo - this team taught me what ownership actually means.', image: '/images/memories/intern-completed.jpeg' },
-  { title: 'GATE Experience', note: 'Months of preparation compressed into one very long exam day.', image: '/images/memories/gate-exp.jpeg' },
+  { title: 'Internship Training Session', note: 'A Google Meet training session from the internship days.', image: '/images/memories/training-intern.jpeg' },
+  { title: 'CRACOE Team After Internship', note: 'Successful completion of 15 days Internship.', image: '/images/memories/intern-completed.jpeg' },
+  { title: 'GATE Experience', note: 'GATE 2026 didn’t go fully in my favour, but I was closer than I expected', image: '/images/memories/gate-exp.jpeg' },
   { title: 'Thermocol Robot Model', note: 'Before code, there was cardboard, thermocol, and a lot of glue.', image: '/images/memories/ai-robot.jpeg' },
-  { title: 'Hackathon Team Photo', note: 'Sleep-deprived and proud of something that barely worked, but worked.', image: '/images/memories/first-hack.jpeg' },
+  { title: 'Hackathon Team', note: 'Sleep-deprived and proud of something that barely worked, but worked.', image: '/images/memories/first-hack.jpeg' },
   { title: 'First Musical Instrument', note: 'A reminder that curiosity started long before the first line of code.', image: '/images/memories/first-instrument.jpeg' },
 ]
 
@@ -142,9 +142,9 @@ export const storyNodes = [
 ]
 
 export const socials = [
-  { label: 'GitHub', url: 'https://github.com/' },
-  { label: 'LinkedIn', url: 'https://linkedin.com/' },
-  { label: 'Email', url: 'mailto:hello@example.com' },
+  { label: 'GitHub', url: 'https://github.com/Shalinichandran05' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/shalini-c-b2763834b/' },
+  { label: 'Email', url: 'mailto:shalinickr05@gmail.com' },
 ]
 
 export const emailjsConfig = {
