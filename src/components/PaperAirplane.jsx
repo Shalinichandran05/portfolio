@@ -38,7 +38,7 @@ export default function PaperAirplane({ onArrive }) {
 
         await controls.start({ opacity: 0, transition: { duration: 0.28, ease: 'easeOut' } })
         await controls.set({ offsetDistance: '0%', rotate: -10, opacity: 0 })
-        await rest(5200)
+        await rest(2000)
       }
     }
 

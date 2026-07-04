@@ -30,8 +30,8 @@ npm run preview
 3. **Certificates** — drop PDFs into `public/certs/` matching the filenames in
    `src/data/content.js` (`achievements` and `certifications` arrays).
 4. **Contact form (EmailJS)** — create a free account at [emailjs.com](https://www.emailjs.com/),
-   set up a service + template, then fill in `emailjsConfig` in `src/data/content.js` with your
-   `serviceId`, `templateId`, and `publicKey`.
+   set up a service + template, then copy `.env.example` to `.env` and fill in your
+   `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` values.
 5. **Social links** — update the `socials` array in `src/data/content.js`.
 6. **Copy** — all text content (bios, project descriptions, achievements, memories, etc.) lives in
    `src/data/content.js` so you can edit it without touching component code.

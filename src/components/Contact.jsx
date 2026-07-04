@@ -13,12 +13,23 @@ const iconFor = (label) => {
 export default function Contact({ socials, intro = 'Prefer a direct line? Find me here.' }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const directEmail = socials.find((social) => social.url?.startsWith('mailto:'))?.url.replace('mailto:', '')
+  const isEmailjsConfigured = Object.values(emailjsConfig).every((value) => value && !value.startsWith('YOUR_'))
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
+
+    if (!isEmailjsConfigured && directEmail) {
+      const subject = encodeURIComponent(`Portfolio message from ${form.name}`)
+      const body = encodeURIComponent(`From: ${form.name} <${form.email}>\n\n${form.message}`)
+      window.location.href = `mailto:${directEmail}?subject=${subject}&body=${body}`
+      setStatus('idle')
+      return
+    }
+
     try {
       await emailjs.send(
         emailjsConfig.serviceId,
@@ -48,12 +59,13 @@ export default function Contact({ socials, intro = 'Prefer a direct line? Find m
         </p>
         {socials.map((s) => {
           const Icon = iconFor(s.label)
+          const isMailLink = s.url?.startsWith('mailto:')
           return (
             <a
               key={s.label}
               href={s.url}
-              target="_blank"
-              rel="noreferrer"
+              target={isMailLink ? undefined : '_blank'}
+              rel={isMailLink ? undefined : 'noreferrer'}
               className="group flex items-center gap-3 font-body text-ink-soft hover:text-glow transition-colors duration-300 w-fit"
             >
               <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-glow group-hover:shadow-glow-sm transition-all duration-300">
@@ -126,5 +138,3 @@ export default function Contact({ socials, intro = 'Prefer a direct line? Find m
     </div>
   )
 }
-
-
