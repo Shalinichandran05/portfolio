@@ -109,7 +109,7 @@ export default function VisitorView() {
       <Section id="connect" eyebrow="Let's Connect" title="Say hello">
         <Contact socials={socials} intro="Whether you want to talk about projects, startups, ideas, technology, or simply say hello, I'd love to hear from you." />
         <p className="mx-auto mt-8 max-w-2xl text-center font-body text-sm leading-relaxed text-ink-soft/75 md:text-base">
-          Somewhere in this portfolio, there's a page that wasn't meant to be found. Did you notice the airplane or the profile?
+          Somewhere in this portfolio, there's a page that wasn't meant to be found. Did you notice the airplane or the profile picture?
         </p>
       </Section>
 
